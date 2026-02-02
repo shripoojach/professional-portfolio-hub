@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -44,26 +45,40 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="section-padding">
       <div className="container-narrow">
-        <div className="text-center mb-12 fade-in-up">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Projects</h2>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Here are some of my recent projects. Click on any project to learn more.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.id}
-              className="group bg-card rounded-xl overflow-hidden card-hover border border-border fade-in-up cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group bg-card rounded-xl overflow-hidden card-hover border border-border cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ y: -8 }}
             >
               {/* Project Image/Icon */}
-              <div className="h-48 bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
+              <div className="h-48 bg-gradient-to-br from-secondary to-muted flex items-center justify-center overflow-hidden">
+                <motion.span 
+                  className="text-6xl"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   {project.image}
-                </span>
+                </motion.span>
               </div>
 
               {/* Project Info */}
@@ -99,7 +114,7 @@ const ProjectsSection = () => {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

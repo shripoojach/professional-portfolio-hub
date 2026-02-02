@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 interface NavigationProps {
   activeSection: string;
@@ -36,17 +37,33 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
+              <motion.button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
+                className={`relative text-sm font-medium transition-colors ${
                   activeSection === item.id
                     ? "text-accent"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {item.label}
-              </button>
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <motion.div
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent/50 rounded-full origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.button>
             ))}
           </div>
 
@@ -63,10 +80,16 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border fade-in">
+          <motion.div 
+            className="md:hidden py-4 border-t border-border"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
             <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <button
+              {navItems.map((item, index) => (
+                <motion.button
                   key={item.id}
                   onClick={() => handleNavigate(item.id)}
                   className={`text-left text-sm font-medium transition-colors hover:text-accent ${
@@ -74,12 +97,16 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
                       ? "text-accent"
                       : "text-muted-foreground"
                   }`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ x: 8 }}
                 >
                   {item.label}
-                </button>
+                </motion.button>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </nav>
