@@ -1,4 +1,5 @@
 import { GraduationCap, Users, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 
 const education = [
   {
@@ -36,16 +37,27 @@ const EducationSection = () => {
   return (
     <section id="education" className="section-padding bg-card">
       <div className="container-narrow">
-        <div className="text-center mb-12 fade-in-up">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Education & Interests
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Education */}
-          <div className="fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-accent/10">
                 <GraduationCap className="h-5 w-5 text-accent" />
@@ -54,22 +66,32 @@ const EducationSection = () => {
             </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="relative pl-6 border-l-2 border-accent/30 hover:border-accent transition-colors"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ x: 4 }}
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent/20 border-2 border-accent"></div>
                   <p className="text-xs text-accent font-medium mb-1">{edu.year}</p>
                   <h4 className="font-semibold text-foreground">{edu.degree}</h4>
                   <p className="text-sm text-muted-foreground mb-1">{edu.institution}</p>
                   <p className="text-sm text-muted-foreground">{edu.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Clubs */}
-          <div className="fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-accent/10">
                 <Users className="h-5 w-5 text-accent" />
@@ -78,9 +100,14 @@ const EducationSection = () => {
             </div>
             <div className="space-y-4">
               {clubs.map((club, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="p-4 rounded-lg bg-background card-hover"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="font-semibold text-foreground">{club.name}</h4>
@@ -89,13 +116,18 @@ const EducationSection = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">{club.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Interests */}
-          <div className="fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-accent/10">
                 <Heart className="h-5 w-5 text-accent" />
@@ -104,15 +136,21 @@ const EducationSection = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               {interests.map((interest, index) => (
-                <span
+                <motion.span
                   key={index}
                   className="px-4 py-2 text-sm font-medium bg-background rounded-full text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-default card-hover"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {interest}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
