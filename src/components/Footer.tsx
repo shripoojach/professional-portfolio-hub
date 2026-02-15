@@ -1,9 +1,8 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/in/shri-pooja-challagulla", label: "LinkedIn" },
 ];
 
 const Footer = () => {
@@ -14,7 +13,7 @@ const Footer = () => {
       <div className="container-narrow">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Shri Pooja Challagulla. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
