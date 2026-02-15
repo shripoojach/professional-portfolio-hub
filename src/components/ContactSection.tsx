@@ -8,9 +8,9 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "your.email@example.com", href: "mailto:your.email@example.com" },
-  { icon: Phone, label: "Phone", value: "+1 (123) 456-7890", href: "tel:+11234567890" },
-  { icon: MapPin, label: "Location", value: "Your City, Country", href: null },
+  { icon: Mail, label: "Email", value: "ipoojach24@gmail.com", href: "mailto:ipoojach24@gmail.com" },
+  { icon: Phone, label: "Phone", value: "520-248-8753", href: "tel:+15202488753" },
+  { icon: MapPin, label: "Location", value: "Tucson, Arizona", href: null },
 ];
 
 const ContactSection = () => {

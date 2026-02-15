@@ -31,7 +31,7 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
             onClick={() => handleNavigate("hero")}
             className="font-serif text-xl font-semibold text-foreground hover:text-accent transition-colors"
           >
-            Portfolio
+            Pooja C.
           </button>
 
           {/* Desktop Navigation */}

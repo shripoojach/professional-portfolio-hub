@@ -1,10 +1,12 @@
-import { Code, Palette, Lightbulb } from "lucide-react";
+import { Code, Brain, Cloud, Database, Terminal, BarChart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { icon: Code, title: "Development", description: "Building scalable web applications with modern technologies" },
-  { icon: Palette, title: "Design", description: "Creating clean, intuitive user interfaces and experiences" },
-  { icon: Lightbulb, title: "Problem Solving", description: "Finding creative solutions to complex challenges" },
+  { icon: Brain, title: "AI / Machine Learning", description: "LLMs, RAG Pipelines, Agentic AI, Multi-Agent Systems, NLP, TensorFlow, PyTorch, LangChain" },
+  { icon: Cloud, title: "Backend / Cloud", description: "AWS (Lambda, S3, EC2), FastAPI, Flask, PostgreSQL, REST APIs, Microservices" },
+  { icon: Code, title: "Programming", description: "Python, SQL, Java, JavaScript, Shell Scripting, HTML, CSS" },
+  { icon: BarChart, title: "Data & Analytics", description: "NumPy, Pandas, Matplotlib, Excel, Data Visualization" },
+  { icon: Terminal, title: "Software Engineering", description: "System Design, API Integration, Workflow Automation, Data Validation Pipelines" },
 ];
 
 const AboutSection = () => {
@@ -22,7 +24,7 @@ const AboutSection = () => {
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Bio */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -31,23 +33,23 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <p className="text-muted-foreground leading-relaxed mb-6">
-              I'm a dedicated professional with a passion for creating impactful digital experiences. 
-              With a strong foundation in both technical skills and creative thinking, I strive to 
-              deliver solutions that make a difference.
+              I'm a Computer Science and Artificial Intelligence dual-major at the University of Arizona, 
+              with a minor in Mathematics. My work sits at the intersection of AI systems engineering, 
+              natural language processing, and intelligent retrieval systems.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              My journey has been driven by curiosity and a constant desire to learn. I believe in 
-              the power of technology to solve real-world problems and am committed to continuous 
-              growth and improvement.
+              Currently, I'm an AI Systems Engineer Intern at McGraw Hill, where I develop agent-driven, 
+              course-aligned learning systems using LLM-based architectures and RAG pipelines. Previously, 
+              I built AI-powered chatbots for oncology information retrieval at the AWCIM Cancer Center.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, contributing to 
-              open-source projects, or enjoying outdoor activities.
+              I'm an incoming PhD student in Computer Science (Machine Learning) at the University of Arizona, 
+              where I'll continue pushing the boundaries of intelligent systems and applied AI research.
             </p>
           </motion.div>
 
           {/* Skills */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {skills.map((skill, index) => (
               <motion.div 
                 key={skill.title}

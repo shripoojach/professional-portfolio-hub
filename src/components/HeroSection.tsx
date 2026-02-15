@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 interface HeroSectionProps {
   onNavigate: (section: string) => void;
@@ -18,10 +19,12 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-secondary border-4 border-accent/20 overflow-hidden shadow-lg">
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-muted">
-                <span className="text-6xl md:text-7xl text-muted-foreground">👤</span>
-              </div>
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-accent/20 overflow-hidden shadow-lg">
+              <img 
+                src={profilePhoto} 
+                alt="Shri Pooja Challagulla" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
@@ -46,7 +49,7 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              Your Name
+              Shri Pooja Challagulla
             </motion.h1>
             <motion.p 
               className="text-lg md:text-xl text-muted-foreground mb-6 max-w-lg"
@@ -54,8 +57,8 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              A passionate developer and creative problem solver. I build modern web 
-              applications and love turning ideas into reality.
+              AI Systems Engineer & Computer Science Researcher. Building intelligent systems 
+              with LLMs, RAG pipelines, and agentic AI workflows.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
