@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.jpg";
@@ -78,6 +78,16 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
                 View Projects
+              </Button>
+              <Button 
+                variant="outline" 
+                asChild
+                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground gap-2"
+              >
+                <a href="/Shri_Pooja_Challagulla_Resume.pdf" download>
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </a>
               </Button>
             </motion.div>
           </motion.div>
